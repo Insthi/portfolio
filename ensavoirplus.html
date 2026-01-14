@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Ines Tahi</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=BBH+Hegarty&family=Inter:wght@400;500;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="Images/etoile.png">
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* --- VARIABLES (Identiques à ton portfolio) --- */
+        :root {
+            --bg-dark: #120d16; 
+            --gold-bright: #FFD700; 
+            --text-white: #F7F5FF;
+        }
+
+        /* --- RESET & BASE --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--bg-dark);
+            font-family: 'Inter', sans-serif;
+            color: var(--text-white);
+            min-height: 100vh;
+            overflow-x: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        /* --- ANIMATION DU FOND (Ton code original) --- */
+        body::before {
+            content: "";
+            position: fixed;
+            top: -25%; left: -25%;
+            width: 150%; height: 150%;
+            background-image: 
+                radial-gradient(circle at 15% 15%, rgba(212, 175, 55, 0.25) 0%, transparent 35%),
+                radial-gradient(circle at 85% 85%, rgba(212, 175, 55, 0.25) 0%, transparent 35%),
+                radial-gradient(circle at 50% 50%, rgba(74, 29, 110, 0.45) 0%, transparent 65%);
+            z-index: -1;
+            animation: moveGradient 18s ease-in-out infinite alternate;
+            pointer-events: none;
+        }
+
+        @keyframes moveGradient {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            100% { transform: translate(-3%, -4%) rotate(-1deg); }
+        }
+
+        /* --- SPARKLES --- */
+        .sparkle {
+            position: absolute;
+            color: white;
+            z-index: 1;
+            filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.8));
+            animation: twinkle 3s infinite ease-in-out;
+            pointer-events: none;
+        }
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; transform: scale(0.8); }
+            50% { opacity: 1; transform: scale(1.1); }
+        }
+
+        /* --- LAYOUT --- */
+        .alternance-page {
+            width: 90%;
+            max-width: 1100px;
+            padding: 40px 0;
+            z-index: 10;
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        .back-nav {
+            margin-bottom: 40px;
+        }
+
+        .back-btn {
+            color: var(--gold-bright);
+            text-decoration: none;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-weight: 800;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: 0.3s;
+        }
+
+        .back-btn:hover { opacity: 0.7; transform: translateX(-5px); }
+
+        /* --- TITRE --- */
+        .header-title {
+            margin-bottom: 60px;
+        }
+
+        .header-title h1 {
+            font-family: 'BBH Hegarty', serif;
+            font-size: clamp(3rem, 10vw, 6.5rem);
+            line-height: 0.9;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            color: var(--text-white);
+        }
+
+        .header-title .highlight {
+    font-family: 'Inter', sans-serif; /* Plus de typo attachée */
+    color: var(--gold-bright);
+    font-size: clamp(1rem, 3vw, 1.5rem); /* Taille beaucoup plus petite */
+    display: block;
+    margin-top: 10px; /* Espace équilibré sous le nom */
+    letter-spacing: 5px; /* Espacement pour le côté élégant */
+    text-transform: uppercase;
+    font-weight: 500;
+    filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.3)); /* Halo plus discret */
+    opacity: 0.9;
+}
+
+        /* --- CARTE GLASSMORPHISM --- */
+        .main-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            border-radius: 40px;
+            padding: 60px;
+            backdrop-filter: blur(15px);
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .content-left { flex: 1.2; text-align: left; }
+        .content-right { flex: 0.8; }
+
+        .content-left h2 {
+            font-family: 'Inter', sans-serif;
+            font-weight: 800;
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            letter-spacing: -1px;
+        }
+
+        .content-left p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: rgba(247, 245, 255, 0.8);
+            margin-bottom: 30px;
+        }
+
+        .tags-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tag {
+            border: 1px solid rgba(255, 215, 0, 0.4);
+            padding: 8px 18px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: var(--gold-bright);
+        }
+
+        /* --- BOUTONS --- */
+        .btn-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .action-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding: 22px;
+            border-radius: 100px;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-weight: 800;
+            font-size: 0.8rem;
+            letter-spacing: 3px;
+            transition: 0.4s;
+        }
+
+        .fill {
+            background: var(--gold-bright);
+            color: var(--bg-dark);
+        }
+
+        .outline {
+            border: 1px solid var(--gold-bright);
+            color: var(--gold-bright);
+        }
+
+        .action-btn:hover {
+            transform: scale(1.03);
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.2);
+        }
+
+        /* --- ANIMATIONS --- */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 900px) {
+            .main-card { flex-direction: column; padding: 40px; text-align: center; }
+            .content-left { text-align: center; }
+            .tags-container { justify-content: center; }
+            .header-title { text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="sparkle s1">✦</div>
+    <div class="sparkle s3">✦</div>
+    <div class="sparkle s5">✦</div>
+
+    <div class="alternance-page">
+        
+        <div class="back-nav">
+            <a href="index.html" class="back-btn">
+                <i class="fa-solid fa-arrow-left"></i> Portfolio
+            </a>
+        </div>
+
+        <header class="header-title">
+            <h1>Recherche</h1>
+            <span class="highlight">Alternance 2026</span>
+        </header>
+
+        <main class="main-card">
+            <div class="content-left">
+                <h2>Recherche Septembre 2026</h2>
+                <p>
+                    Actuellement à la recherche d'une alternance pour ma rentrée prochaine. 
+                    Mon domaine : la <strong>création numérique</strong> et l'<strong>audiovisuel</strong>. 
+                    <strong>Je maîtrise la suite Adobe</strong> pour concevoir vos contenus, du montage vidéo au motion design, en passant par la création graphique sur Photoshop.
+                </p>
+                <div class="tags-container">
+                    <span class="tag">Audiovisuel</span>
+                    <span class="tag">Motion Design</span>
+                    <span class="tag">Photoshop</span>
+                    <span class="tag">Montage Vidéo</span>
+                </div>
+            </div>
+
+            <div class="content-right">
+                <div class="btn-stack">
+                    <a href="cv.html" class="action-btn fill">
+                        <i class="fa-solid fa-file-pdf"></i> Voir mon CV
+                    </a>
+                    <a href="mailto:ines.tahi01@gmail.com" class="action-btn outline">
+                        <i class="fa-solid fa-envelope"></i> Me contacter
+                    </a>
+                </div>
+            </div>
+        </main>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Ines Tahi</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=BBH+Hegarty&family=Inter:wght@400;500;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="Images/etoile.png">
+    <link rel="stylesheet" href="style.css">
+
+
+
+    <style>
+        .affiche-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 60px 20px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Typo diminuée ici */
+        .affiche-title {
+            font-family: 'BBH Hegarty', serif;
+            font-size: clamp(2rem, 5vw, 3.5rem); /* Taille réduite */
+            text-transform: uppercase;
+            color: var(--text-white);
+            margin-bottom: 40px;
+            text-align: center;
+            letter-spacing: 1px;
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .affiche-view {
+            display: flex;
+            justify-content: center;
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards 0.2s;
+        }
+
+        .affiche-view img {
+            max-width: 480px; 
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 215, 0, 0.15);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+            transition: transform 0.4s ease;
+        }
+
+        .affiche-view img:hover {
+            transform: scale(1.02);
+            border-color: var(--gold-bright);
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="affiche-container">
+        <a href="projet-afrikelles.html" class="back-link">
+            <i class="fa-solid fa-arrow-left"></i> Retour à Afrik'elles
+        </a>
+
+        <h1 class="affiche-title">Festival africain</h1>
+
+        <section class="affiche-view">
+            <img src="Images/Affiche/AFFICHE EVENEMENT ILLKIRCH.png" alt="Affiche Festival Africain">
+        </section>
+    </div>
+
+</body>
+</html>

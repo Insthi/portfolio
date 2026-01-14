@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Ines Tahi</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=BBH+Hegarty&family=Inter:wght@400;500;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="Images/etoile.png">
+    <link rel="stylesheet" href="style.css">
+
+
+    <style>
+        .cv-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 60px 20px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cv-title {
+            font-family: 'BBH Hegarty', serif;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            text-transform: uppercase;
+            color: var(--text-white);
+            margin-bottom: 40px;
+            text-align: center;
+            letter-spacing: 1px;
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .cv-view {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards 0.2s;
+            gap: 40px;
+        }
+
+        .cv-view img {
+            max-width: 700px; /* Un peu plus large pour que le CV soit lisible */
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 215, 0, 0.15);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+            transition: transform 0.4s ease;
+        }
+
+        .cv-view img:hover {
+            transform: scale(1.01);
+            border-color: var(--gold-bright);
+        }
+
+        /* Bouton de téléchargement utilisant ton style project-link */
+        .download-btn {
+            align-self: center;
+            padding: 16px 40px;
+            border: 1px solid var(--gold-bright);
+            color: var(--gold-bright);
+            text-decoration: none;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-weight: 800;
+            border-radius: 100px;
+            transition: 0.4s ease;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .download-btn:hover {
+            background: var(--gold-bright);
+            color: var(--bg-dark);
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="cv-container">
+        <a href="index.html" class="back-link">
+            <i class="fa-solid fa-arrow-left"></i> Retour au portfolio
+        </a>
+
+        <h1 class="cv-title">Mon CV</h1>
+
+        <section class="cv-view">
+            <img src="Images/CV_Ines_Tahi.pdf" alt="CV Inès Tahi">
+        
+            <a href="Images/CV_Ines_Tahi.pdf" download="CV_Ines_Tahi.pdf" class="download-btn">
+                <i class="fa-solid fa-download"></i> Télécharger le PDF
+            </a>
+        </section>
+    </div>
+
+</body>
+</html>
